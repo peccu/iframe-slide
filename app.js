@@ -31,6 +31,9 @@ const getFrame = () => {
   return document.getElementById(key);
 };
 const setSrc = (src) => {
+  if(!src){
+    return;
+  }
   getFrame().src = src;
 };
 const getCurrensSrc = () => {
