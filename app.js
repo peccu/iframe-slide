@@ -41,17 +41,18 @@ const getCurrensSrc = () => {
 };
 let timer = null;
 let currentIndex = 0;
+const next = () => {
+  let srcs = fetchSrcs();
+  setSrc(srcs[(currentIndex % srcs.length)]);
+  currentIndex++;
+};
 const auto = () => {
   if(timer){
     console.warn('already started');
     return null;
   }
-  let srcs = fetchSrcs();
-  setSrc(srcs[(currentIndex % srcs.length)]);
-  timer = window.setInterval(()=>{
-    currentIndex++;
-    setSrc(srcs[(currentIndex % srcs.length)]);
-  }, interval);
+  next();
+  timer = window.setInterval(next, getInterval());
   return timer;
 };
 const stop = () => {
