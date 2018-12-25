@@ -65,27 +65,32 @@ const stop = () => {
 };
 const help = () => {
   console.log(`
-app.interval: refresh interval. default: 10min
-app.addSrc(url): add url
-app.showSrcs(): show stored urls
-app.fetchSrcs(): return srcs (Array)
-app.storeSrcs(srcs): store srcs (Array)
-app.setSrc(src): sets src into iframe.src
-app.auto(): start interval
-app.stop(): stop interval
-app.help(): show this messages
+setIntervalDuration(interval): set refresh interval (ms). default: 10min
+getInterval(): get current refresh interval (ms).
+addSrc(url): add url
+showSrcs(): show stored urls
+fetchSrcs(): return srcs (Array)
+storeSrcs(srcs): store srcs (Array)
+setSrc(src): sets src into iframe.src
+getCurrensSrc(): get current src
+next(): set next url
+auto(): start interval
+stop(): stop interval
+help(): show this messages
 `);
 };
-window.app = {
-  interval,
-  fetchSrcs,
-  showSrcs,
-  storeSrcs,
-  addSrc,
-  getFrame,
-  setSrc,
-  auto,
-  stop,
-  help
-};
+window.setIntervalDuration = setIntervalDuration;
+window.getInterval = getInterval;
+window.fetchSrcs = fetchSrcs;
+window.showSrcs = showSrcs;
+window.storeSrcs = storeSrcs;
+window.addSrc = addSrc;
+window.getFrame = getFrame;
+window.setSrc = setSrc;
+window.getCurrensSrc = getCurrensSrc;
+window.next = next;
+window.auto = auto;
+window.stop = stop;
+window.help = help;
+
 auto();
