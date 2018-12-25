@@ -33,6 +33,9 @@ const getFrame = () => {
 const setSrc = (src) => {
   getFrame().src = src;
 };
+const getCurrensSrc = () => {
+  return getFrame().src;
+};
 let timer = null;
 let currentIndex = 0;
 const auto = () => {
