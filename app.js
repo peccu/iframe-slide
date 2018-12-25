@@ -57,6 +57,9 @@ const auto = () => {
   return timer;
 };
 const stop = () => {
+  if(!timer){
+    return;
+  }
   window.clearInterval(timer);
   timer = null;
 };
