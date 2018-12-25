@@ -24,7 +24,7 @@ const setSrc = (src) => {
   getFrame().src = src;
 };
 let timer = null;
-let currentIndex = 1;
+let currentIndex = 0;
 const auto = () => {
   if(timer){
     console.warn('already started');
@@ -34,7 +34,7 @@ const auto = () => {
   setSrc(srcs[(srcs.length % currentIndex)]);
   timer = window.setInterval(()=>{
     currentIndex++;
-    setSrc(srcs[(srcs.length % currentIndex)]);
+    setSrc(srcs[(currentIndex % srcs.length)]);
   }, interval);
   return timer;
 };
