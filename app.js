@@ -1,5 +1,14 @@
 const key = 'iframe-slide';
 let interval = 10 * 60 * 1000;
+const setIntervalDuration = (ms) => {
+  if(!ms){
+    return;
+  }
+  interval = ms;
+};
+const getInterval = () => {
+  return interval;
+};
 const fetchSrcs = () => {
   return JSON.parse(window.localStorage.getItem(key));
 };
