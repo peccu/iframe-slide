@@ -10,7 +10,11 @@ const getInterval = () => {
   return interval;
 };
 const fetchSrcs = () => {
-  return JSON.parse(window.localStorage.getItem(key));
+  let srcs = JSON.parse(window.localStorage.getItem(key));
+  if(!srcs){
+    srcs = [];
+  }
+  return srcs;
 };
 const showSrcs = () => {
   console.log(fetchSrcs());
@@ -20,9 +24,6 @@ const storeSrcs = (srcs) => {
 };
 const addSrc = (src) => {
   let srcs = fetchSrcs();
-  if(!srcs){
-    srcs = [];
-  }
   srcs.push(src);
   storeSrcs(srcs);
 };
