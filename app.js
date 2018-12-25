@@ -42,6 +42,7 @@ const getCurrensSrc = () => {
 let timer = null;
 let currentIndex = 0;
 const next = () => {
+  console.log('current', [currentIndex, getCurrensSrc()]);
   let srcs = fetchSrcs();
   setSrc(srcs[(currentIndex % srcs.length)]);
   currentIndex++;
