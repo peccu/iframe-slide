@@ -31,7 +31,7 @@ const auto = () => {
     return null;
   }
   let srcs = fetchSrcs();
-  setSrc(srcs[(srcs.length % currentIndex)]);
+  setSrc(srcs[(currentIndex % srcs.length)]);
   timer = window.setInterval(()=>{
     currentIndex++;
     setSrc(srcs[(currentIndex % srcs.length)]);
