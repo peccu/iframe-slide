@@ -43,15 +43,16 @@ const stop = () => {
   timer = null;
 };
 const help = () => {
-  console.log(`interval: refresh interval. default: 10min
-assSrc(url): add url
-showSrcs(): show stored urls
-fetchSrcs(): return srcs (Array)
-storeSrcs(srcs): store srcs (Array)
-setSrc(src): sets src into iframe.src
-auto(): start interval
-stop(): stop interval
-help(): show this messages
+  console.log(`
+app.interval: refresh interval. default: 10min
+app.addSrc(url): add url
+app.showSrcs(): show stored urls
+app.fetchSrcs(): return srcs (Array)
+app.storeSrcs(srcs): store srcs (Array)
+app.setSrc(src): sets src into iframe.src
+app.auto(): start interval
+app.stop(): stop interval
+app.help(): show this messages
 `);
 };
 window.app = {
