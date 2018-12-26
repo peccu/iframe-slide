@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <title>add src - iframe-slide</title>
+  </head>
+  <body>
+    <div id="src"></div>
+    <a id="bookmarklet" href="">add to iframe-slide</a>
+    <script>
+     let bookmarklet = `javascript:(funcion(){
+window.open(
+'${location.origin + location.pathname}?url='+location.href
+);
+})()`;
+     document.getElementById('bookmarklet').href = bookmarklet;
+     let params = location.search.slice(1).split('&').reduce((a, e, i)=>{
+       console.log([a, i, e]);
+       param = e.split('=');
+       a[param[0]] = param[1];
+       return a;
+     }, {url: null});
+     const key = 'iframe-slide';
+     const fetchSrcs = () => {
+       let srcs = JSON.parse(window.localStorage.getItem(key));
+       if(!srcs){
+         srcs = [];
+       }
+       return srcs;
+     };
+     const storeSrcs = (srcs) => {
+       return window.localStorage.setItem(key, JSON.stringify(srcs));
+     };
+     const addSrc = (src) => {
+       let srcs = fetchSrcs();
+       srcs.push(src);
+       storeSrcs(srcs);
+     };
+     document.getElementById('src').innerText = params.url;
+     if(params.url){
+       addSrc(params.url);
+     }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65053410-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-65053410-3');
+    </script>
+  </body>
+</html>
