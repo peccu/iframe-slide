@@ -1,3 +1,6 @@
+import fullscreen from './toggle-fullscreen.js';
+import isFullscreenSupports from './isios.js';
+
 const key = 'iframe-slide';
 let interval = 10 * 60 * 1000;
 const setIntervalDuration = (ms) => {
@@ -77,6 +80,7 @@ next(): set next url
 auto(): start interval
 stop(): stop interval
 help(): show this messages
+fullscreen(): toggle fullscreen
 `);
 };
 window.setIntervalDuration = setIntervalDuration;
@@ -92,5 +96,8 @@ window.next = next;
 window.auto = auto;
 window.stop = stop;
 window.help = help;
-
+window.fullscreen = fullscreen;
 auto();
+if(isFullscreenSupports()){
+  fullscreen();
+}
