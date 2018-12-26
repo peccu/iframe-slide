@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "parcel index.html",
-    "build": "git stash save && rm dist/* && parcel build --public-url '.' index.html && git stash pop",
+    "build": "git stash save && rm dist/* && parcel build --public-url '.' index.html && cp add.html dist/ && git stash pop",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kentaro Shimatani",
